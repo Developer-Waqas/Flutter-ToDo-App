@@ -21,3 +21,10 @@ TextStyle onBoardingSubTitleStyle = TextStyle(
   fontSize: 16,
   color: whiteColor,
 );
+
+///<<<<<-----OnBoardingBackButtonTextStyle------>>>>>///
+TextStyle onBoardingBackButtonTextStyle = TextStyle(
+  fontFamily: 'LatoRegular',
+  fontSize: 16,
+  color: grayColor,
+);
