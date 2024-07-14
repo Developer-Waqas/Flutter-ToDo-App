@@ -19,3 +19,5 @@ const String subTitle3 = 'You can organize your daily tasks by adding your tasks
 const String onBoardingButtonText1 = 'SKIP';
 const String onBoardingButtonText2 = 'NEXT';
 const String onBoardingButtonText3 = 'BACK';
+const String onBoardingButtonText4 = 'GET STARTED';
+

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/src/common_widgets/custom_button/custom_button.dart';
 
 import '../../constants/app_colors/app_colors.dart';
 import '../../constants/app_styles/app_style.dart';
@@ -12,7 +13,7 @@ class CustomOnBoardingContainer extends StatelessWidget {
   final String title;
   final String subtitle;
 
-  const CustomOnBoardingContainer({
+   CustomOnBoardingContainer({
     super.key,
     required this.bgColor,
     required this.onBoardingImage,
@@ -40,7 +41,7 @@ class CustomOnBoardingContainer extends StatelessWidget {
               Text(subtitle,style: onBoardingSubTitleStyle,textAlign: TextAlign.center,)
             ],
           ),
-          SizedBox(height: 50,)
+          SizedBox(height: 50,),
         ],
       ),
 

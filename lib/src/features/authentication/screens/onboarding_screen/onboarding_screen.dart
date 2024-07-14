@@ -16,8 +16,8 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final onBoardingController = OnBoardingController();
+    const bool isLastPage = true;
 
     return Scaffold(
       backgroundColor: splashBgColor,
@@ -25,21 +25,23 @@ class OnboardingScreen extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           LiquidSwipe(
-            pages: onBoardingController.pages,
+            pages: onBoardingController.onBoardingPages,
             liquidController: onBoardingController.controller,
             onPageChangeCallback: onBoardingController.onPageChangeCallback,
           ),
           SizedBox(
             height: 50,
           ),
-          Obx(() => Positioned(
-            bottom: 30,
-            child: AnimatedSmoothIndicator(
-              activeIndex: onBoardingController.currentPage.value,
-              count: 3,
-              effect: WormEffect(activeDotColor: whiteColor, dotHeight: 5),
+          Obx(
+            () => Positioned(
+              bottom: 30,
+              child: AnimatedSmoothIndicator(
+                activeIndex: onBoardingController.currentPage.value,
+                count: 3,
+                effect: WormEffect(activeDotColor: whiteColor, dotHeight: 5),
+              ),
             ),
-          ),),
+          ),
 
           ///Skip button
           Positioned(
@@ -49,20 +51,27 @@ class OnboardingScreen extends StatelessWidget {
               buttonTitle: onBoardingButtonText1,
               onPressed: () => onBoardingController.skip(),
               buttonTextStyle: onBoardingBackButtonTextStyle,
-            ),),
+            ),
+          ),
+
           ///Next button
           Positioned(
             bottom: 80,
-              right: 20,
-              child: CustomButton(
+            right: 20,
+            child: Obx(
+              () => CustomButton(
                 buttonHeight: 48,
-                buttonWidth: 90,
-                buttonTitle: onBoardingButtonText2,
+                buttonWidth: 140,
+                buttonTitle: onBoardingController.isLastPage
+                    ? onBoardingButtonText4
+                    : onBoardingButtonText2,
                 onPressed: () => onBoardingController.animatedToNextSlide(),
                 buttonColor: nextButtonColor,
                 buttonBorderRadius: 10,
                 buttonTextStyle: onBoardingSubTitleStyle,
-              ),),
+              ),
+            ),
+          ),
           Positioned(
             bottom: 80,
             left: 20,
@@ -70,7 +79,8 @@ class OnboardingScreen extends StatelessWidget {
               buttonTitle: onBoardingButtonText3,
               onPressed: () => onBoardingController.animatedToBackSlide(),
               buttonTextStyle: onBoardingBackButtonTextStyle,
-            ),),
+            ),
+          ),
         ],
       ),
     );
