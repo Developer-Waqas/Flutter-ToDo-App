@@ -31,7 +31,7 @@ const String loginText2 = 'Username';
 const String loginText3 = 'Enter your Username';
 const String loginText4 = 'Password';
 const String loginText5 = 'Enter your Password';
-const String loginText6 = 'or';
+const String loginText6 = 'OR';
 const String loginText7 = 'Don\'t have an account?';
  //<<<<----Login Button Text----->>>>
 const String loginButtonText1 = 'Login';

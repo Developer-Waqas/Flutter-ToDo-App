@@ -10,7 +10,7 @@ class WelcomeController extends GetxController {
     Get.off(
       const LoginScreen(),
       curve: Curves.easeIn,
-      duration: 1.seconds,
+      duration: 0.5.seconds,
     );
   }
 
@@ -18,7 +18,7 @@ class WelcomeController extends GetxController {
     Get.off(
       const CreateAccountScreen(),
       curve: Curves.easeIn,
-      duration: 1.seconds,
+      duration: 0.5.seconds,
     );
   }
 

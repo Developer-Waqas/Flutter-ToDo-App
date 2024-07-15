@@ -11,6 +11,7 @@ class CustomTextFormField extends StatelessWidget {
   InputBorder? inputBorder;
   TextEditingController? controller;
   String? Function(String?)? onValid;
+  TextInputType? keyboardType;
 
   CustomTextFormField({
     super.key,
@@ -20,11 +21,14 @@ class CustomTextFormField extends StatelessWidget {
     this.inputBorder,
     this.controller,
     this.onValid,
+    this.keyboardType,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: keyboardType,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       style: inputTextStyle,
       controller: controller,
       decoration: InputDecoration(
