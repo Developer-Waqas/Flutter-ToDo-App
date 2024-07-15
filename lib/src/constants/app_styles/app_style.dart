@@ -29,8 +29,23 @@ TextStyle onBoardingBackButtonTextStyle = TextStyle(
   color: grayColor,
 );
 
+///<<<<<=====Welcome Text Style========>>>>>>
 TextStyle welcomeTitleStyle = TextStyle(
   fontFamily: 'LatoBold',
   color: whiteColor,
   fontSize: 32,
+);
+
+///<<<<<-----------LoginScreenTitleStyle=======>>>>>>>>
+TextStyle loginTextStyle1 = TextStyle(
+  fontSize: 38,
+  fontFamily: 'LatoBold',
+  color: whiteColor
+);
+
+///<<<<<-----HintTextStyle------>>>>>///
+TextStyle hintTextStyle = TextStyle(
+  fontFamily: 'LatoRegular',
+  fontSize: 16,
+  color: hintTextColor,
 );

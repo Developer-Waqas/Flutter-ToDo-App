@@ -47,20 +47,20 @@ class OnBoardingController extends GetxController {
     CustomOnBoardingContainer(
       bgColor: onBoardingColor1,
       onBoardingImage: const AssetImage(onBoardingImage1),
-      title: title1,
-      subtitle: subTitle1,
+      title: onBoardingTitleText1,
+      subtitle: onBoardingSubtitleText2,
     ),
     CustomOnBoardingContainer(
       bgColor: onBoardingColor2,
       onBoardingImage: const AssetImage(onBoardingImage2),
-      title: title2,
-      subtitle: subTitle2,
+      title: onBoardingTitleText2,
+      subtitle: onBoardingSubTitle2,
     ),
     CustomOnBoardingContainer(
       bgColor: onBoardingColor3,
       onBoardingImage: const AssetImage(onBoardingImage3),
-      title: title3,
-      subtitle: subTitle3,
+      title: onBoardingTitleText3,
+      subtitle: onBoardingSubTitleText3,
     ),
   ];
 }

@@ -14,3 +14,7 @@ Color onBoardingColor2 = Color(0xff00002A);
 Color onBoardingColor3 = Color(0xff00001C);
 
 Color primaryColor = Color(0xff8875FF);
+
+Color hintTextColor = Color(0xff535353);
+
+Color borderColor = Color(0xff979797);

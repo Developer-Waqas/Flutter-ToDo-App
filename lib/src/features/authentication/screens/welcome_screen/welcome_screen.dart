@@ -55,7 +55,7 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 500,
+              height: 300,
             ),
             CustomButton(
               buttonWidth: 327,
