@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../constants/app_colors/app_colors.dart';
 
 class CustomButton extends StatelessWidget {
-
   final double buttonHeight;
   final double buttonWidth;
   final Color? buttonColor;
@@ -14,22 +13,18 @@ class CustomButton extends StatelessWidget {
   final VoidCallback onPressed;
   final BoxBorder? buttonBorder;
 
-   CustomButton({
+  CustomButton({
     super.key,
-     this.buttonHeight = 48,
-     this.buttonWidth = 90,
-     this.buttonColor,
-     this.buttonBorderRadius = 10,
-     required this.buttonTitle,
-     this.buttonTextStyle,
-     this.buttonPadding,
-     required this.onPressed,
-     this.buttonBorder,
+    this.buttonHeight = 48,
+    this.buttonWidth = 90,
+    this.buttonColor,
+    this.buttonBorderRadius = 8,
+    required this.buttonTitle,
+    this.buttonTextStyle,
+    this.buttonPadding,
+    required this.onPressed,
+    this.buttonBorder,
   });
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -37,14 +32,15 @@ class CustomButton extends StatelessWidget {
       height: buttonHeight,
       width: buttonWidth,
       decoration: BoxDecoration(
-        color: buttonColor,
-        borderRadius: BorderRadius.circular(buttonBorderRadius),
-        border:buttonBorder
-      ),
+          color: buttonColor,
+          borderRadius: BorderRadius.circular(buttonBorderRadius),
+          border: buttonBorder),
       child: TextButton(
         onPressed: onPressed,
-        child: Text(buttonTitle,style: buttonTextStyle,),
-
+        child: Text(
+          buttonTitle,
+          style: buttonTextStyle,
+        ),
       ),
     );
   }

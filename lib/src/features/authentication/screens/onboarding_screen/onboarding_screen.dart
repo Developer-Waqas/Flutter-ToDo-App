@@ -1,23 +1,21 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:todo_app/src/constants/app_colors/app_colors.dart';
 import 'package:todo_app/src/constants/app_styles/app_style.dart';
-import 'package:todo_app/src/constants/image_strings/image_strings.dart';
 import 'package:todo_app/src/constants/text_strings/text_strings.dart';
 import 'package:todo_app/src/features/authentication/controllers/onboarding_controller/onboarding_controller.dart';
 
 import '../../../../common_widgets/custom_button/custom_button.dart';
-import '../../../../common_widgets/custom_onboarding_container/custom_onboarding_container.dart';
 
-class OnboardingScreen extends StatelessWidget {
-  const OnboardingScreen({super.key});
+class OnBoardingScreen extends StatelessWidget {
+  const OnBoardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     final onBoardingController = OnBoardingController();
-    const bool isLastPage = true;
 
     return Scaffold(
       backgroundColor: splashBgColor,
@@ -29,7 +27,7 @@ class OnboardingScreen extends StatelessWidget {
             liquidController: onBoardingController.controller,
             onPageChangeCallback: onBoardingController.onPageChangeCallback,
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           Obx(
@@ -37,7 +35,7 @@ class OnboardingScreen extends StatelessWidget {
               bottom: 30,
               child: AnimatedSmoothIndicator(
                 activeIndex: onBoardingController.currentPage.value,
-                count: 3,
+                count: onBoardingController.onBoardingPages.length,
                 effect: WormEffect(activeDotColor: whiteColor, dotHeight: 5),
               ),
             ),
@@ -66,8 +64,8 @@ class OnboardingScreen extends StatelessWidget {
                     ? onBoardingButtonText4
                     : onBoardingButtonText2,
                 onPressed: () => onBoardingController.animatedToNextSlide(),
-                buttonColor: nextButtonColor,
-                buttonBorderRadius: 10,
+                buttonColor: primaryColor,
+                buttonBorderRadius: 8,
                 buttonTextStyle: onBoardingSubTitleStyle,
               ),
             ),

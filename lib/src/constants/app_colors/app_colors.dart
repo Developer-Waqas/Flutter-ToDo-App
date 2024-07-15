@@ -13,4 +13,4 @@ Color onBoardingColor2 = Color(0xff00002A);
 
 Color onBoardingColor3 = Color(0xff00001C);
 
-Color nextButtonColor = Color(0xff8875FF);
+Color primaryColor = Color(0xff8875FF);

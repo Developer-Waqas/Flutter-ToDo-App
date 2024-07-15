@@ -28,3 +28,9 @@ TextStyle onBoardingBackButtonTextStyle = TextStyle(
   fontSize: 16,
   color: grayColor,
 );
+
+TextStyle welcomeTitleStyle = TextStyle(
+  fontFamily: 'LatoBold',
+  color: whiteColor,
+  fontSize: 32,
+);

@@ -14,7 +14,7 @@ class SplashController extends GetxController {
 
     Timer(Duration(seconds: 3), () {
 
-      Get.off(OnboardingScreen());
+      Get.off(OnBoardingScreen());
 
     });
 
