@@ -5,6 +5,7 @@ import 'package:todo_app/src/common_widgets/custom_button/custom_button.dart';
 import 'package:todo_app/src/common_widgets/custom_textformfield/custom_tetformfield.dart';
 import 'package:todo_app/src/constants/app_styles/app_style.dart';
 import 'package:todo_app/src/constants/text_strings/text_strings.dart';
+import 'package:todo_app/src/features/authentication/controllers/login_controller/login_controller.dart';
 import 'package:todo_app/src/features/authentication/screens/welcome_screen/welcome_screen.dart';
 
 import '../../../../common_widgets/custom_icon_button/custom_icon_button.dart';
@@ -15,6 +16,8 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    LoginController loginController = Get.put(LoginController());
+
     return Scaffold(
       backgroundColor: splashBgColor,
       body: SingleChildScrollView(
@@ -53,6 +56,7 @@ class LoginScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 child: Form(
+                  key: loginController.formKey,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,7 +68,7 @@ class LoginScreen extends StatelessWidget {
                       const SizedBox(
                         height: 8,
                       ),
-        
+
                       ///Username
                       CustomTextFormField(
                         keyboardType: TextInputType.text,
@@ -76,7 +80,8 @@ class LoginScreen extends StatelessWidget {
                             borderSide: BorderSide(
                               color: borderColor,
                               width: 2,
-                            )),
+                            ),),
+                        onValid: (userName) => loginController.validUserName(userName),
                       ),
                       const SizedBox(
                         height: 20,
@@ -88,7 +93,7 @@ class LoginScreen extends StatelessWidget {
                       const SizedBox(
                         height: 8,
                       ),
-        
+
                       ///Password
                       CustomTextFormField(
                         keyboardType: TextInputType.text,
@@ -100,11 +105,10 @@ class LoginScreen extends StatelessWidget {
                             borderSide: BorderSide(
                               color: borderColor,
                               width: 2,
-                            )),
+                            ),),
+                        onValid: (pass) => loginController.validPassword(pass),
                       ),
-                      const SizedBox(
-                        height: 40,
-                      ),
+                      const SizedBox(height: 20,),
                       Center(
                         child: CustomButton(
                           buttonColor: primaryColor,
@@ -112,7 +116,7 @@ class LoginScreen extends StatelessWidget {
                           buttonTextStyle: onBoardingSubTitleStyle,
                           buttonWidth: 327,
                           buttonTitle: loginButtonText1,
-                          onPressed: () {},
+                          onPressed: () => loginController.onLogin(),
                         ),
                       ),
                       const SizedBox(
@@ -145,7 +149,7 @@ class LoginScreen extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-        
+
                       ///Google
                       Center(
                         child: CustomButton(
@@ -160,7 +164,7 @@ class LoginScreen extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-        
+
                       ///Apple
                       Center(
                         child: CustomButton(
@@ -176,13 +180,19 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 30,),
+              const SizedBox(
+                height: 30,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(loginText7,style: hintTextStyle,),
+                  Text(
+                    loginText7,
+                    style: hintTextStyle,
+                  ),
                   CustomButton(
-                    buttonTitle: loginButtonText4,buttonTextStyle: onBoardingSubTitleStyle,
+                    buttonTitle: loginButtonText4,
+                    buttonTextStyle: onBoardingSubTitleStyle,
                     buttonWidth: 148,
                     onPressed: () {},
                   ),

@@ -18,3 +18,11 @@ Color primaryColor = Color(0xff8875FF);
 Color hintTextColor = Color(0xff535353);
 
 Color borderColor = Color(0xff979797);
+
+Color redColor = Color(0xffFF0000);
+
+Color amberColor = Color(0xffFFBF00);
+
+Color greenColor = Color(0xff008000);
+
+Color deepPurpleAccent = Color(0xff36013F);

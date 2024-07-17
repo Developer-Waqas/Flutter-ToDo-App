@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:todo_app/src/constants/app_styles/app_style.dart';
 
 class CustomTextFormField extends StatelessWidget {
   String? hintText;
@@ -12,6 +13,7 @@ class CustomTextFormField extends StatelessWidget {
   TextEditingController? controller;
   String? Function(String?)? onValid;
   TextInputType? keyboardType;
+  void Function(String)? onChanged;
 
   CustomTextFormField({
     super.key,
@@ -22,6 +24,7 @@ class CustomTextFormField extends StatelessWidget {
     this.controller,
     this.onValid,
     this.keyboardType,
+    this.onChanged,
   });
 
   @override
@@ -34,9 +37,11 @@ class CustomTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         hintText: 'Enter your Username',
         hintStyle: hintTextStyle,
+        errorStyle: errorTextStyle,
         border: inputBorder,
       ),
       validator: onValid,
+      onChanged: onChanged,
     );
   }
 }

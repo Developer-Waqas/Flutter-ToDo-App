@@ -49,3 +49,10 @@ TextStyle hintTextStyle = TextStyle(
   fontSize: 16,
   color: hintTextColor,
 );
+
+///    Error text style
+TextStyle errorTextStyle = TextStyle(
+  fontFamily: 'LatoRegular',
+  color: redColor,
+  fontSize: 12,
+);
