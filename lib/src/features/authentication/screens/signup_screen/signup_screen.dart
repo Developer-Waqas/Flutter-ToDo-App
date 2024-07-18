@@ -35,15 +35,15 @@ class SignUpScreen extends StatelessWidget {
         ),
       ),
       body:  Padding(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: 12,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             /* SignUp Header Widget */
-            SignUpHeaderWidget(),
-            SizedBox(
+            const SignUpHeaderWidget(),
+            const SizedBox(
               height: 20,
             ),
             Form(
@@ -54,7 +54,7 @@ class SignUpScreen extends StatelessWidget {
                     signUpText2,
                     style: onBoardingSubTitleStyle,
                   ),
-                  SizedBox(height: 5,),
+                  const SizedBox(height: 5,),
                   CustomFormField(
                     keyboardType: TextInputType.emailAddress,
                     inputTextStyle: onBoardingSubTitleStyle,
