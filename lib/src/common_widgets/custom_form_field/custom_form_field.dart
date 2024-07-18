@@ -3,9 +3,12 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:todo_app/src/constants/app_colors/app_colors.dart';
 import 'package:todo_app/src/constants/app_styles/app_style.dart';
 
-class CustomTextFormField extends StatelessWidget {
+class CustomFormField extends StatelessWidget {
   String? hintText;
   TextStyle? hintTextStyle;
   TextStyle? inputTextStyle;
@@ -14,8 +17,10 @@ class CustomTextFormField extends StatelessWidget {
   String? Function(String?)? onValid;
   TextInputType? keyboardType;
   void Function(String)? onChanged;
+  Widget? suffixIcon;
+  bool obscureText;
 
-  CustomTextFormField({
+  CustomFormField({
     super.key,
     this.inputTextStyle,
     this.hintTextStyle,
@@ -25,6 +30,8 @@ class CustomTextFormField extends StatelessWidget {
     this.onValid,
     this.keyboardType,
     this.onChanged,
+    this.suffixIcon,
+    this.obscureText = false,
   });
 
   @override
@@ -34,10 +41,12 @@ class CustomTextFormField extends StatelessWidget {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       style: inputTextStyle,
       controller: controller,
+      obscureText: obscureText,
       decoration: InputDecoration(
-        hintText: 'Enter your Username',
+        hintText: hintText,
         hintStyle: hintTextStyle,
         errorStyle: errorTextStyle,
+        suffixIcon: suffixIcon,
         border: inputBorder,
       ),
       validator: onValid,

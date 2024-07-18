@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:todo_app/src/common_widgets/custom_button/custom_button.dart';
 import 'package:todo_app/src/common_widgets/custom_icon_button/custom_icon_button.dart';
 import 'package:todo_app/src/constants/app_colors/app_colors.dart';
@@ -17,24 +16,24 @@ class WelcomeScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: splashBgColor,
+      appBar: AppBar(
+        backgroundColor: transparent,
+        elevation: 0,
+        leading: Align(
+          alignment: Alignment.topLeft,
+          child: CustomIconButton(
+              buttonIcon: CupertinoIcons.back,
+              buttonPressed: welcomeController.backBtn,
+              buttonColor: whiteColor,
+              buttonSize: 35),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8),
         child: Column(
           children: [
-            SizedBox(
-              height: 30,
-            ),
-            Align(
-              alignment: Alignment.topLeft,
-              child: CustomIconButton(
-                  buttonIcon: CupertinoIcons.back,
-                  buttonPressed: welcomeController.backBtn,
-                  buttonColor: whiteColor,
-                  buttonSize: 35),
-            ),
-            SizedBox(
-              height: 50,
-            ),
+
+            /* <<< --- Heading --- >>> */
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Column(
@@ -43,9 +42,11 @@ class WelcomeScreen extends StatelessWidget {
                     welcomeTitle,
                     style: welcomeTitleStyle,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
+
+                  /* << -- Sub Heading --- >>> */
                   Text(
                     welcomeSubtitle,
                     style: onBoardingSubTitleStyle,
@@ -54,9 +55,11 @@ class WelcomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
-              height: 300,
+            const SizedBox(
+              height: 400,
             ),
+
+            /* Login Button */
             CustomButton(
               buttonWidth: 327,
               buttonHeight: 48,
@@ -66,17 +69,19 @@ class WelcomeScreen extends StatelessWidget {
               buttonTitle: loginBtnTitle,
               onPressed: welcomeController.loginBtn,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
+
+            /* Create Account Button */
             CustomButton(
               buttonWidth: 327,
               buttonHeight: 48,
               buttonTextStyle: onBoardingSubTitleStyle,
               buttonBorderRadius: 5,
               buttonTitle: createAccBtnTitle,
-              onPressed: welcomeController.createAccountBtn,
-              buttonBorder: Border.all(color: primaryColor, width: 2),
+              onPressed: welcomeController.signUpBtn,
+              buttonBorder: Border.all(color: primaryColor, width: 2,),
             ),
           ],
         ),

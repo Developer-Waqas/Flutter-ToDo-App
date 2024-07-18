@@ -2,187 +2,69 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo_app/src/common_widgets/custom_button/custom_button.dart';
-import 'package:todo_app/src/common_widgets/custom_textformfield/custom_tetformfield.dart';
 import 'package:todo_app/src/constants/app_styles/app_style.dart';
 import 'package:todo_app/src/constants/text_strings/text_strings.dart';
 import 'package:todo_app/src/features/authentication/controllers/login_controller/login_controller.dart';
+import 'package:todo_app/src/features/authentication/controllers/welcom_controller/welcome_controller.dart';
+import 'package:todo_app/src/features/authentication/screens/login_screen/login_header_widget.dart';
 import 'package:todo_app/src/features/authentication/screens/welcome_screen/welcome_screen.dart';
 
 import '../../../../common_widgets/custom_icon_button/custom_icon_button.dart';
 import '../../../../constants/app_colors/app_colors.dart';
+import 'login_form_widget.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    /*  <<< --- GetX Dependency Injection ---- >>>> */
     LoginController loginController = Get.put(LoginController());
 
     return Scaffold(
       backgroundColor: splashBgColor,
+      appBar: AppBar(
+        backgroundColor: transparent,
+        elevation: 0,
+        leading: Align(
+          alignment: Alignment.topLeft,
+          child: CustomIconButton(
+            buttonIcon: CupertinoIcons.back,
+            buttonPressed: loginController.backBtn(),
+            buttonColor: whiteColor,
+            buttonSize: 35,
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 20,
-              ),
-              Align(
-                alignment: Alignment.topLeft,
-                child: CustomIconButton(
-                  buttonIcon: CupertinoIcons.back,
-                  buttonPressed: () {
-                    Get.off(const WelcomeScreen(), curve: Curves.easeOut);
-                  },
-                  buttonColor: whiteColor,
-                  buttonSize: 35,
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
+
+             /* Login Header Widget */
               Padding(
-                padding: const EdgeInsets.all(15),
-                child: Text(
-                  loginButtonText1,
-                  style: loginTextStyle1,
+                padding: const EdgeInsets.symmetric(horizontal: 15,),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const LoginHeaderWidget(),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    LoginForm(
+                      loginController: loginController,
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                child: Form(
-                  key: loginController.formKey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        loginText2,
-                        style: onBoardingSubTitleStyle,
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
 
-                      ///Username
-                      CustomTextFormField(
-                        keyboardType: TextInputType.text,
-                        inputTextStyle: onBoardingSubTitleStyle,
-                        hintText: loginText3,
-                        hintTextStyle: hintTextStyle,
-                        inputBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: BorderSide(
-                              color: borderColor,
-                              width: 2,
-                            ),),
-                        onValid: (userName) => loginController.validUserName(userName),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        loginText4,
-                        style: onBoardingSubTitleStyle,
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-
-                      ///Password
-                      CustomTextFormField(
-                        keyboardType: TextInputType.text,
-                        inputTextStyle: onBoardingSubTitleStyle,
-                        hintText: loginText5,
-                        hintTextStyle: hintTextStyle,
-                        inputBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: BorderSide(
-                              color: borderColor,
-                              width: 2,
-                            ),),
-                        onValid: (pass) => loginController.validPassword(pass),
-                      ),
-                      const SizedBox(height: 20,),
-                      Center(
-                        child: CustomButton(
-                          buttonColor: primaryColor,
-                          buttonBorderRadius: 5,
-                          buttonTextStyle: onBoardingSubTitleStyle,
-                          buttonWidth: 327,
-                          buttonTitle: loginButtonText1,
-                          onPressed: () => loginController.onLogin(),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 12),
-                        child: Row(
-                          children: [
-                            const Expanded(
-                              child: Divider(
-                                thickness: 2,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                loginText6,
-                                style: hintTextStyle,
-                              ),
-                            ),
-                            const Expanded(
-                              child: Divider(
-                                thickness: 2,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-
-                      ///Google
-                      Center(
-                        child: CustomButton(
-                          buttonBorderRadius: 5,
-                          buttonTextStyle: onBoardingSubTitleStyle,
-                          buttonWidth: 327,
-                          buttonTitle: loginButtonText2,
-                          buttonBorder: Border.all(color: primaryColor),
-                          onPressed: () {},
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-
-                      ///Apple
-                      Center(
-                        child: CustomButton(
-                          buttonBorderRadius: 5,
-                          buttonTextStyle: onBoardingSubTitleStyle,
-                          buttonWidth: 327,
-                          buttonTitle: loginButtonText3,
-                          buttonBorder: Border.all(color: primaryColor),
-                          onPressed: () {},
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
+              /* <<< ----- Don't have an Account Buttons ----- >>> */
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -194,7 +76,7 @@ class LoginScreen extends StatelessWidget {
                     buttonTitle: loginButtonText4,
                     buttonTextStyle: onBoardingSubTitleStyle,
                     buttonWidth: 148,
-                    onPressed: () {},
+                    onPressed: loginController.signUpBtn(),
                   ),
                 ],
               ),

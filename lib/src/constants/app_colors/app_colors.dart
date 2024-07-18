@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
 
+Color transparent = Colors.transparent;
 
-Color splashBgColor = Color(0xff0F0530).withOpacity(0.2);
+Color splashBgColor = const Color(0xff0F0530).withOpacity(0.2);
 
-Color whiteColor = Color(0xffffffff);
+Color whiteColor = const Color(0xffffffff);
 
-Color grayColor = Color(0xff808080);
+Color grayColor = const Color(0xff808080);
 
-Color onBoardingColor1 = Color(0xff000038);
+Color onBoardingColor1 = const Color(0xff000038);
 
-Color onBoardingColor2 = Color(0xff00002A);
+Color onBoardingColor2 = const Color(0xff00002A);
 
-Color onBoardingColor3 = Color(0xff00001C);
+Color onBoardingColor3 = const Color(0xff00001C);
 
-Color primaryColor = Color(0xff8875FF);
+Color primaryColor = const Color(0xff8875FF);
 
-Color hintTextColor = Color(0xff535353);
+Color hintTextColor = const Color(0xff535353);
 
-Color borderColor = Color(0xff979797);
+Color borderColor = const Color(0xff979797);
 
-Color redColor = Color(0xffFF0000);
+Color redColor = const Color(0xffFF0000);
 
-Color amberColor = Color(0xffFFBF00);
+Color amberColor = const Color(0xffFFBF00);
 
-Color greenColor = Color(0xff008000);
+Color greenColor = const Color(0xff008000);
 
-Color deepPurpleAccent = Color(0xff36013F);
+Color deepPurpleAccent = const Color(0xff36013F);

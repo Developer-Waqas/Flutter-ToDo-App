@@ -9,40 +9,50 @@ import '../../../../constants/image_strings/image_strings.dart';
 import '../../../../constants/text_strings/text_strings.dart';
 
 class OnBoardingController extends GetxController {
+
+  /* <<< ---- Page Controller --- >>>> */
   final controller = LiquidController();
+
+  /* current page variable */
   RxInt currentPage = 0.obs;
 
+  /* For Last Page --- to change buttons */
   bool get isLastPage => currentPage.value == onBoardingPages.length - 1;
 
 
+  /* <<< --- Page Change Func --- >>>>*/
   onPageChangeCallback(int activePageIndex) {
     return currentPage.value = activePageIndex;
   }
 
+  /* Skip Func */
   skip() => controller.jumpToPage(page: 2);
 
+  /* <<< --- Next Button Func --- >>> */
   animatedToNextSlide() {
     if (isLastPage) {
       Get.off(
-        WelcomeScreen(),
+        const WelcomeScreen(),
         duration: 1.seconds,
-        curve: Curves.easeIn,
       );
     }
     else {
       int nextPage = controller.currentPage + 1;
       controller.animateToPage(
-        duration: 2,
+        duration: 1,
         page: nextPage,
       );
     }
   }
 
+
+  /* Back Button Func */
   animatedToBackSlide() {
     int backPage = controller.currentPage - 1 ;
     controller.animateToPage(page: backPage);
   }
 
+  /* <<<< --- OnBoarding Pages List --- >>>> */
   final onBoardingPages = [
     CustomOnBoardingContainer(
       bgColor: onBoardingColor1,

@@ -14,8 +14,10 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    /* <<< --- GetX Dependency Injection --- >>> */
     SplashController controller = Get.put(SplashController());
 
+    /* Responsive */
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -25,11 +27,15 @@ class SplashScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+
+            /* <<< --- Splash logo -- >>> */
             Image(
               image: AssetImage(splashImage),
               height: size.height * 0.1
             ),
             SizedBox(height: 10,),
+
+            /* App Name */
             Text(appName,style: logoTextStyle,),
           ],
         ),
