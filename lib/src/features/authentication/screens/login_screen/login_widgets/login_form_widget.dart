@@ -12,21 +12,23 @@ import '../../../controllers/login_controller/login_controller.dart';
 class LoginForm extends StatelessWidget {
   const LoginForm({
     super.key,
-    required this.loginController,
   });
 
   /* <<< ---- Login Controller ---- >>> */
-  final LoginController loginController;
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: loginController.formKey,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           /* <<< ----- Email Field ---- >>>> */
+          Text(
+            loginText2,
+            style: onBoardingSubTitleStyle,
+          ),
+          const SizedBox(height: 5,),
           CustomFormField(
             keyboardType: TextInputType.emailAddress,
             inputTextStyle: onBoardingSubTitleStyle,
@@ -39,7 +41,6 @@ class LoginForm extends StatelessWidget {
                 width: 2,
               ),
             ),
-            onValid: (userName) => loginController.validEmail(userName),
           ),
           const SizedBox(
             height: 20,
@@ -53,23 +54,11 @@ class LoginForm extends StatelessWidget {
           ),
 
           /* <<<< ---- Password Field ---- >>>> */
-          Obx(
-            () => CustomFormField(
+      CustomFormField(
               keyboardType: TextInputType.text,
               inputTextStyle: onBoardingSubTitleStyle,
               hintText: loginText5,
               hintTextStyle: hintTextStyle,
-              obscureText: loginController.isHidden.value,
-              suffixIcon: GestureDetector(
-                onTap: loginController.togglePasswordView,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 15, top: 10),
-                  child: Text(
-                    loginController.isHidden.value ? loginText9 : loginText10,
-                    style: onBoardingSubTitleStyle,
-                  ),
-                ),
-              ),
               inputBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(
@@ -77,9 +66,7 @@ class LoginForm extends StatelessWidget {
                   width: 2,
                 ),
               ),
-              onValid: (pass) => loginController.validPassword(pass),
             ),
-          ),
           const SizedBox(
             height: 3,
           ),
@@ -111,7 +98,7 @@ class LoginForm extends StatelessWidget {
               buttonTextStyle: onBoardingSubTitleStyle,
               buttonWidth: 327,
               buttonTitle: loginButtonText1,
-              onPressed: () => loginController.onLogin(),
+              onPressed: () {},
             ),
           ),
           const SizedBox(

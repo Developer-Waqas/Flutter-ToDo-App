@@ -16,16 +16,20 @@ class WelcomeScreenFooterWidget extends StatelessWidget {
     return Column(
       children: [
         /* Login Button */
+        /* Create Account Button */
         CustomButton(
           buttonWidth: 327,
           buttonHeight: 48,
           buttonTextStyle: onBoardingSubTitleStyle,
           buttonBorderRadius: 5,
-          buttonColor: primaryColor,
           buttonTitle: loginBtnTitle,
-          onPressed: welcomeController.loginBtn,
-
+          onPressed: welcomeController.loginButton,
+          buttonBorder: Border.all(
+            color: primaryColor,
+            width: 2,
+          ),
         ),
+
         const SizedBox(
           height: 20,
         ),

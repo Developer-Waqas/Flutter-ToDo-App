@@ -15,7 +15,6 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /*  <<< --- GetX Dependency Injection ---- >>>> */
-    LoginController loginController = Get.put(LoginController());
 
     return Scaffold(
       backgroundColor: splashBgColor,
@@ -26,14 +25,13 @@ class LoginScreen extends StatelessWidget {
           alignment: Alignment.topLeft,
           child: CustomIconButton(
             buttonIcon: CupertinoIcons.back,
-            buttonPressed: loginController.backBtn(),
+            buttonPressed: (){},
             buttonColor: whiteColor,
             buttonSize: 35,
           ),
         ),
       ),
       body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Column(
@@ -47,17 +45,14 @@ class LoginScreen extends StatelessWidget {
 
               /* LoginFOrm */
               LoginForm(
-                loginController: loginController,
               ),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
 
               /* Login Screen Footer Widget */
               const LoginFooterWidget(),
-              const SizedBox(
-                height: 30,
-              ),
+
             ],
           ),
         ),

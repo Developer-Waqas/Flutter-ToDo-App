@@ -6,17 +6,19 @@ import '../../screens/signup_screen/signup_screen.dart';
 
 class WelcomeController extends GetxController {
 
- /* << --- Login Button -- >> */
-  loginBtn() {
-    Get.off(
-      const LoginScreen(),
-    );
-  }
 
   /* <<< -- SignUp Button */
   signUpBtn() {
     Get.off(
       const SignUpScreen(),
+      duration: 0.5.seconds,
+    );
+  }
+
+  /* << --- Login Button -- >> */
+  loginButton() {
+    Get.off(
+      const LoginScreen(),
       duration: 0.5.seconds,
     );
   }
@@ -27,5 +29,4 @@ class WelcomeController extends GetxController {
       const OnBoardingScreen(),
     );
   }
-
 }

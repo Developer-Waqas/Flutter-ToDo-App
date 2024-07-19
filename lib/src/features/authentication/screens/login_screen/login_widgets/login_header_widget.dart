@@ -19,10 +19,7 @@ class LoginHeaderWidget extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        Text(
-          loginText2,
-          style: onBoardingSubTitleStyle,
-        ),
+
       ],
     );
   }

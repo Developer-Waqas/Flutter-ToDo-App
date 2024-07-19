@@ -13,7 +13,8 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final welcomeController = Get.put(WelcomeController());
+
+    final WelcomeController welcomeController = Get.put(WelcomeController());
 
     return Scaffold(
       backgroundColor: splashBgColor,

@@ -4,35 +4,35 @@ import '../../../../../common_widgets/custom_button/custom_button.dart';
 import '../../../../../constants/app_colors/app_colors.dart';
 import '../../../../../constants/app_styles/app_style.dart';
 import '../../../../../constants/text_strings/text_strings.dart';
-import '../../../controllers/login_controller/login_controller.dart';
 
-class LoginFooterWidget extends StatelessWidget {
-  const LoginFooterWidget({super.key});
+class SignUpFooterWidget extends StatelessWidget {
+  const SignUpFooterWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           child: Row(
             children: [
-              const Expanded(
+              Expanded(
                 child: Divider(
                   thickness: 2,
+                  color: borderColor,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  loginText6,
-                  style: hintTextStyle,
+                  signUpText8,
+                  style: onBoardingSubTitleStyle,
                 ),
               ),
-              const Expanded(
+              Expanded(
                 child: Divider(
                   thickness: 2,
+                  color: borderColor,
                 ),
               ),
             ],
@@ -42,14 +42,18 @@ class LoginFooterWidget extends StatelessWidget {
           height: 10,
         ),
 
-        /* <<< --- Google Login ---- >>>> */
+        /// Google
         Center(
           child: CustomButton(
-            buttonBorderRadius: 5,
+            buttonTitle: signUpButtonText2,
             buttonTextStyle: onBoardingSubTitleStyle,
-            buttonWidth: 327,
-            buttonTitle: loginButtonText2,
-            buttonBorder: Border.all(color: primaryColor),
+            buttonBorderRadius: 8,
+            buttonBorder: Border.all(
+              color: primaryColor,
+              width: 2,
+            ),
+            buttonHeight: 48,
+            buttonWidth: 300,
             onPressed: () {},
           ),
         ),
@@ -57,33 +61,38 @@ class LoginFooterWidget extends StatelessWidget {
           height: 20,
         ),
 
-        /* <<<< ---- Apple Login ----- >>>> */
+        /// Apple
         Center(
           child: CustomButton(
-            buttonBorderRadius: 5,
+            buttonTitle: signUpButtonText3,
             buttonTextStyle: onBoardingSubTitleStyle,
-            buttonWidth: 327,
-            buttonTitle: loginButtonText3,
-            buttonBorder: Border.all(color: primaryColor),
+            buttonBorderRadius: 8,
+            buttonBorder: Border.all(
+              color: primaryColor,
+              width: 2,
+            ),
+            buttonHeight: 48,
+            buttonWidth: 300,
             onPressed: () {},
           ),
         ),
-        /* <<< ----- Don't have an Account Buttons ----- >>> */
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              loginText7,
+              signUpText17,
               style: hintTextStyle,
             ),
-            CustomButton(
-              buttonTitle: loginButtonText4,
-              buttonTextStyle: onBoardingSubTitleStyle,
-              buttonWidth: 90,
-              onPressed: (){},
+            const SizedBox(
+              width: 3,
             ),
+            CustomButton(
+              buttonTitle: loginButtonText1,
+              buttonWidth: 75,
+              onPressed: () {},
+            )
           ],
-        ),
+        )
       ],
     );
   }
