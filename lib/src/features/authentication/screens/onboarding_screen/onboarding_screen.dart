@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
@@ -22,6 +21,7 @@ class OnBoardingScreen extends StatelessWidget {
       body: Stack(
         alignment: Alignment.center,
         children: [
+
           LiquidSwipe(
             pages: onBoardingController.onBoardingPages,
             liquidController: onBoardingController.controller,
@@ -31,7 +31,7 @@ class OnBoardingScreen extends StatelessWidget {
             height: 50,
           ),
           Obx(
-            () => Positioned(
+                () => Positioned(
               bottom: 30,
               child: AnimatedSmoothIndicator(
                 activeIndex: onBoardingController.currentPage.value,
@@ -51,13 +51,11 @@ class OnBoardingScreen extends StatelessWidget {
               buttonTextStyle: onBoardingBackButtonTextStyle,
             ),
           ),
-
-          ///Next button
           Positioned(
             bottom: 80,
             right: 20,
             child: Obx(
-              () => CustomButton(
+                  () => CustomButton(
                 buttonHeight: 48,
                 buttonWidth: 140,
                 buttonTitle: onBoardingController.isLastPage
@@ -84,3 +82,5 @@ class OnBoardingScreen extends StatelessWidget {
     );
   }
 }
+
+

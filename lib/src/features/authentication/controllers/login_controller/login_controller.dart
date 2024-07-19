@@ -48,7 +48,7 @@ class LoginController extends GetxController {
         snackPosition: SnackPosition.TOP,
         colorText: whiteColor,
       );
-      return Get.off(HomeScreen());
+      return Get.off(const HomeScreen());
     }
 
     /* Not Validate Snack Bar */

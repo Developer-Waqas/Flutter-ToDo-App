@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../constants/app_styles/app_style.dart';
-import '../../../../constants/text_strings/text_strings.dart';
+import '../../../../../constants/app_styles/app_style.dart';
+import '../../../../../constants/text_strings/text_strings.dart';
 
 class ForgotPasswordHeaderWidget extends StatelessWidget {
   const ForgotPasswordHeaderWidget({

@@ -1,17 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:todo_app/src/common_widgets/custom_button/custom_button.dart';
-import 'package:todo_app/src/constants/app_styles/app_style.dart';
-import 'package:todo_app/src/constants/text_strings/text_strings.dart';
 import 'package:todo_app/src/features/authentication/controllers/login_controller/login_controller.dart';
-import 'package:todo_app/src/features/authentication/controllers/welcom_controller/welcome_controller.dart';
-import 'package:todo_app/src/features/authentication/screens/login_screen/login_header_widget.dart';
-import 'package:todo_app/src/features/authentication/screens/welcome_screen/welcome_screen.dart';
+import 'package:todo_app/src/features/authentication/screens/login_screen/login_widgets/login_header_widget.dart';
+import 'package:todo_app/src/features/authentication/screens/login_screen/login_widgets/login_footer_widgets.dart';
 
 import '../../../../common_widgets/custom_icon_button/custom_icon_button.dart';
 import '../../../../constants/app_colors/app_colors.dart';
-import 'login_form_widget.dart';
+import 'login_widgets/login_form_widget.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -43,42 +39,24 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
-             /* Login Header Widget */
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15,),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const LoginHeaderWidget(),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    LoginForm(
-                      loginController: loginController,
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                  ],
-                ),
+              /* Login Header Widget */
+              const LoginHeaderWidget(),
+              const SizedBox(
+                height: 8,
               ),
 
-              /* <<< ----- Don't have an Account Buttons ----- >>> */
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    loginText7,
-                    style: hintTextStyle,
-                  ),
-                  CustomButton(
-                    buttonTitle: loginButtonText4,
-                    buttonTextStyle: onBoardingSubTitleStyle,
-                    buttonWidth: 148,
-                    onPressed: loginController.signUpBtn(),
-                  ),
-                ],
+              /* LoginFOrm */
+              LoginForm(
+                loginController: loginController,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+
+              /* Login Screen Footer Widget */
+              const LoginFooterWidget(),
+              const SizedBox(
+                height: 30,
               ),
             ],
           ),

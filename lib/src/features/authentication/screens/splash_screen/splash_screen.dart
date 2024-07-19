@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo_app/src/constants/app_colors/app_colors.dart';
-import 'package:todo_app/src/constants/app_styles/app_style.dart';
-import 'package:todo_app/src/constants/image_strings/image_strings.dart';
-import 'package:todo_app/src/constants/text_strings/text_strings.dart';
 import 'package:todo_app/src/features/authentication/controllers/splash_controller/splash_controller.dart';
+import 'package:todo_app/src/features/authentication/screens/splash_screen/splash_screen_widget/splash_screen_header_widget.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -17,8 +15,6 @@ class SplashScreen extends StatelessWidget {
     /* <<< --- GetX Dependency Injection --- >>> */
     SplashController controller = Get.put(SplashController());
 
-    /* Responsive */
-    final size = MediaQuery.of(context).size;
 
     return Scaffold(
       backgroundColor: splashBgColor,
@@ -28,15 +24,8 @@ class SplashScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
-            /* <<< --- Splash logo -- >>> */
-            Image(
-              image: AssetImage(splashImage),
-              height: size.height * 0.1
-            ),
-            SizedBox(height: 10,),
-
-            /* App Name */
-            Text(appName,style: logoTextStyle,),
+            /* <<< --- Splash Header Widget -- >>> */
+            SplashScreenHeaderWidget(),
           ],
         ),
       ),
